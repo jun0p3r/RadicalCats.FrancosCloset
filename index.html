@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radical Cats!</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #ffffff, #e0e0e0);
+            color: #333;
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+
+        header {
+            background: linear-gradient(to right, #444, #666);
+            color: #fff;
+            padding: 20px;
+            text-align: left;
+            font-size: 1.5em;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            color: #444;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .cat-container {
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .cat {
+            border: 3px solid #888;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            background: #fff;
+            width: 200px;
+            margin: 15px;
+            transition: transform 0.6s ease, box-shadow 0.6s ease;
+            animation: spinIn 1s ease-in-out;
+        }
+
+        .cat:hover {
+            transform: scale(1.2) rotate(5deg);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        @keyframes spinIn {
+            0% { transform: rotate(-180deg) scale(0); }
+            100% { transform: rotate(0deg) scale(1); }
+        }
+
+        .btn, .shuffle-btn {
+            background: linear-gradient(to right, #f0f0f0, #b0b0b0);
+            color: #444;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: bold;
+            margin: 15px;
+            cursor: pointer;
+            transition: background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .btn:hover, .shuffle-btn:hover {
+            background: linear-gradient(to right, #b0b0b0, #f0f0f0);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .footer {
+            margin-top: 40px;
+            padding: 20px;
+            background: linear-gradient(to right, #666, #444);
+            color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .disclaimer {
+            font-size: 0.9em;
+            color: #888;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Radical Cats - A Meowgical Experience
+    </header>
+
+    <h1>Welcome to Radical Cats!</h1>
+
+    <p>Check out these amazing cats:</p>
+
+    <div class="cat-container" id="catContainer">
+        <img class="cat" src="https://cataas.com/cat?width=300&height=300" alt="Rad Cat 1">
+        <img class="cat" src="https://cataas.com/cat?width=301&height=300" alt="Rad Cat 2">
+        <img class="cat" src="https://cataas.com/cat?width=302&height=300" alt="Rad Cat 3">
+        <img class="cat" src="https://cataas.com/cat?width=303&height=300" alt="Rad Cat 4">
+        <img class="cat" src="https://cataas.com/cat?width=304&height=300" alt="Rad Cat 5">
+        <img class="cat" src="https://cataas.com/cat?width=305&height=300" alt="Rad Cat 6">
+        <img class="cat" src="https://cataas.com/cat?width=306&height=300" alt="Rad Cat 7">
+        <img class="cat" src="https://cataas.com/cat?width=307&height=300" alt="Rad Cat 8">
+        <img class="cat" src="https://cataas.com/cat?width=308&height=300" alt="Rad Cat 9">
+        <img class="cat" src="https://cataas.com/cat?width=309&height=300" alt="Rad Cat 10">
+    </div>
+
+    <button class="shuffle-btn" onclick="shuffleCats()">Shuffle Cats</button>
+    <a class="btn" href="https://francoscloset.org" target="_blank">Return to Main Site</a>
+
+    <p>Love cats? Click below to get more cat-tastic content:</p>
+    <a class="btn" href="https://www.youtube.com/results?search_query=radical+cats" target="_blank">Radical Cats on YouTube</a>
+
+    <div class="footer">
+        <p>© 2024 Radical Cats. All rights reserved. Stay pawsome!</p>
+    </div>
+
+    <p class="disclaimer">Made by GPT-4o</p>
+
+    <script>
+        // Shuffle Cats Function
+        function shuffleCats() {
+            const catContainer = document.getElementById('catContainer');
+            catContainer.innerHTML = '';
+            for (let i = 0; i < 10; i++) {
+                const img = document.createElement('img');
+                img.className = 'cat';
+                img.src = `https://cataas.com/cat?width=300&height=300&timestamp=${new Date().getTime() + i}`;
+                img.alt = `Rad Cat ${i + 1}`;
+                catContainer.appendChild(img);
+            }
+        }
+    </script>
+</body>
+</html>
